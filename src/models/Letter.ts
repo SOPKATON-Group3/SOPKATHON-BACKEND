@@ -12,11 +12,11 @@ const LetterSchema = new mongoose.Schema({
     },
     isDeleted: {
         type: Boolean,
-        required: true
+        default: false
     },
     isOpened: {
         type: Boolean,
-        required: true
+        default: false
     },
 })
 
