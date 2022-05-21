@@ -38,9 +38,12 @@ test.serial('쪽지를 열었지만, 삭제하지 않는다', async t => {
 
     // @ts-ignore
     t.is(await Letter.count(), 3);
+    console.log(">LETTER >>>>>>>>>>>>> ", await Letter.findById(letter1._id.toString()).exec())
 
     // when
 
+    // after
+    await Letter.remove()
 })
 
 // when
