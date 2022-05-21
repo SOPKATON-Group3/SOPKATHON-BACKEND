@@ -6,7 +6,8 @@ const message = {
 
     CREATED_NEW_LETTER: "쪽지 등록 완료",
     SUCCESS_TOTAL_LETTER_COUNT:"총 쪽지 개수 조회 성공",
-    UPDATED: '쪽지의 정보가 업데이트 됨'
+    UPDATED: '쪽지의 정보가 업데이트 됨',
+    QUERIED: '쪽지의 정보를 가져옴'
 }
 
 export default message;
