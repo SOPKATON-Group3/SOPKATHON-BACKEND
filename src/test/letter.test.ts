@@ -13,7 +13,7 @@ let chai = require("chai");
 chai.should();
 
 test.serial('쪽지를 열었지만, 삭제하지 않는다', async t => {
-    const MONGODB_URL = "mongodb+srv://sopkathon3:sopkathon3@cluster0.imwo0.mongodb.net/?retryWrites=true&w=majority"
+    // const MONGODB_URL = "mongodb+srv://sopkathon3:sopkathon3@cluster0.imwo0.mongodb.net/?retryWrites=true&w=majority"
     // @ts-ignore
     await mongoose.connect(MONGODB_URL)
 
