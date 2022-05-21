@@ -8,7 +8,6 @@ import LetterModifyService from "../services/LetterModifyService";
 
 const openLetterController = async (req: Request, res: Response) => {
     const error = validationResult(req);
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>SDFDSFDS")
     if (!error.isEmpty()) {
         return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
     }
