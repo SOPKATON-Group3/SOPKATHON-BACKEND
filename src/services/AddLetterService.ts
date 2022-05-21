@@ -23,17 +23,21 @@ export default class AddLetterService {
 
     async createLetter(letterData: LetterCreateDTO): Promise<ResponseWrapDTO<LetterCreateResponseDTO>> {
         try {
+            const letters = await Letter.find();
+            const lettersCount = await Letter.count();
+            const randomNumber = Math.floor(Math.random() * lettersCount);
+            const responseLetter = letters[randomNumber]
             const letter = await this.saveLetter(letterData);
 
             return ResponseWrapper.successOf<LetterCreateResponseDTO>(
                 statusCode.CREATED,
                 message.CREATED_NEW_LETTER,
                 {
-                    id: letter._id,
-                    nickname: letter.nickname,
-                    contents: letter.contents,
-                    isDeleted: letter.isDeleted,
-                    isOpened: letter.isOpened
+                    id: responseLetter._id,
+                    nickname: responseLetter.nickname,
+                    contents: responseLetter.contents,
+                    isDeleted: responseLetter.isDeleted,
+                    isOpened: responseLetter.isOpened
                 }
             )
         } catch (error) {
