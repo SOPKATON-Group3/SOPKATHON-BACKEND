@@ -1,4 +1,5 @@
 import { Service }                 from "typedi";
+import ResponseWrapDTO             from "../interfaces/common/ResponseWrapDTO";
 import { LetterCreateDTO }         from "../interfaces/LetterCreateDTO";
 import { LetterCreateResponseDTO } from "../interfaces/LetterCreateResponseDTO";
 import Letter                      from "../models/Letter";
@@ -11,7 +12,16 @@ export default class AddLetterService {
     constructor() {
     }
 
-    async createLetter(letterData: LetterCreateDTO) {
+    private saveLetter = async (letterData: LetterCreateDTO) => {
+        const letter = new Letter({
+            nickname: letterData.nickname,
+            contents: letterData.contents
+        });
+        await letter.save();
+        return letter;
+    };
+
+    async createLetter(letterData: LetterCreateDTO): Promise<ResponseWrapDTO<LetterCreateResponseDTO>> {
         try {
             const letter = await this.saveLetter(letterData);
 
@@ -32,12 +42,13 @@ export default class AddLetterService {
         }
     }
 
-    private async saveLetter(letterData: LetterCreateDTO) {
-        const letter = new Letter({
-            nickname: letterData.nickname,
-            contents: letterData.contents
-        });
-        await letter.save();
-        return letter;
+
+    async getTotalLetter(): Promise<number> {
+        try {
+            return await Letter.count()
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     }
 };

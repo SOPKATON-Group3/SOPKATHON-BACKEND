@@ -24,6 +24,21 @@ const AddLetterController = {
             console.log(error);
             next(error)
         }
+    },
+    getTotalLetter: async (request: Request, response: Response, next: NextFunction) => {
+        try {
+            const totalLetter = await addLetterService.getTotalLetter();
+            const data = ResponseWrapper.successOf<number>(
+                statusCode.OK,
+                message.SUCCESS_TOTAL_LETTER_COUNT,
+                totalLetter
+            );
+            response.status(statusCode.OK)
+                .send(data);
+        } catch (error) {
+            console.log(error);
+            next(error)
+        }
     }
 }
 
