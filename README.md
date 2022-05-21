@@ -5,7 +5,7 @@
   <th>박진형 @jypthemiracle</th>
 	<th>박진수 @jinsp_inary</th>
 	<tr>
-		<td><img src="https://avatars.githubusercontent.com/u/41055141?v=4"></td>
+		<td><img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/279277294_5593855047294767_3874933137287373895_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=GGEwWLaWJloAX8AnZyF&_nc_ht=scontent-ssn1-1.xx&oh=00_AT882e0vSc3_V1H-hYWJNhx-5Is44uUaHNU57nEJCHm-wQ&oe=628DD8F0"></td>
 		<td><img src="https://avatars.githubusercontent.com/u/45380072?v=4"></td>
 	</tr>
 	</table>
