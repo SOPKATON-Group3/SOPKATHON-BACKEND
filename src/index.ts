@@ -9,7 +9,7 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(routes);   //라우터 
+app.use(routes);   //라우터
 // error handler
 
 interface ErrorType {
@@ -39,3 +39,5 @@ app
     console.error(err);
     process.exit(1);
   });
+
+module.exports = app;
