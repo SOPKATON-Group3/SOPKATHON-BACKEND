@@ -21,11 +21,6 @@ const openLetter = async (letterModifyDto: LetterModifyDto) => {
     }
 }
 
-const softDeleteLetter = async() => {
-    // something
-}
-
 export default {
-    openLetter,
-    softDeleteLetter
+    openLetter
 }

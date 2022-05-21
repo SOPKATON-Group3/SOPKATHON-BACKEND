@@ -29,6 +29,7 @@ app.use(function (err: ErrorType, req: Request, res: Response, next: NextFunctio
 
 app
   .listen(process.env.PORT, () => {
+    console.log(">>", process.env.PORT)
     console.log(`
     ################################################
           🛡️  Server listening on port 🛡️
@@ -40,4 +41,4 @@ app
     process.exit(1);
   });
 
-module.exports = app;
+export default app;
