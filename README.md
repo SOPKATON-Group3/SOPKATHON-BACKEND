@@ -33,7 +33,7 @@
 ## 역할 분담 및 API 명세서
 #### [역할 분담 및 API 명세서](https://workable-cashew-74c.notion.site/b0df464223474963951aa67aa1e51f68?v=b1106ed684584b9087f6fb4512a6320e)
 ## Coding Convention
-#### [언락 Coding Convention](https://workable-cashew-74c.notion.site/Coding-Convention-e25bb191b92643a3b796d02e5085e4b7:wq)
+#### [언락 Coding Convention](https://workable-cashew-74c.notion.site/Coding-Convention-e25bb191b92643a3b796d02e5085e4b7)
 
 ## commit message Convention
 
