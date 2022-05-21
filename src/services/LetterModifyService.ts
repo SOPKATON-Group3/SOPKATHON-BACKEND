@@ -14,7 +14,8 @@ const openLetter = async (letterModifyDto: LetterModifyDto) => {
             isOpened: letterModifyDto.isOpened,
             isDeleted: letterModifyDto.isDeleted
         }
-        return await Letter.findOneAndUpdate(filter, update);
+        await Letter.findOneAndUpdate(filter, update);
+        return await Letter.findById(filter);
     } catch (error) {
         console.log(error);
         throw error;

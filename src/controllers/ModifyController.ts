@@ -19,7 +19,8 @@ const openLetterController = async (req: Request, res: Response) => {
         res.status(statusCode.OK).send(
             util.success(
                 statusCode.OK,
-                message.UPDATED
+                message.UPDATED,
+                data
             )
         )
     } catch (error) {
