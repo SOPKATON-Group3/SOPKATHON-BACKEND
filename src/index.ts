@@ -11,15 +11,15 @@ const app = express();
 
 connectDB();
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use(routes);   //라우터 
 // error handler
 
 interface ErrorType {
-    message: string;
-    status: number;
+  message: string;
+  status: number;
 }
 
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -30,7 +30,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     next(error);
 });
 
-app.use(function (err: ErrorType, req: Request, res: Response, next: NextFunction) {
+app.use(function (err: ErrorType, req: Request, res: Response) {
 
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "production" ? err : {};
@@ -46,9 +46,10 @@ app
     ################################################
           🛡️  Server listening on port 🛡️
     ################################################
-  `);
-    })
-    .on("error", (err) => {
-        console.error(err);
-        process.exit(1);
-    });
+  `)})
+  .on("error", (err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+export default app;
