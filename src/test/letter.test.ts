@@ -1,21 +1,18 @@
 import "mocha";
 import test from 'ava'
-import request from 'supertest'
 import Letter from "../models/Letter";
-import { LetterInfo } from "../interfaces/LetterInfo";
-import { LetterModifyDto } from "../interfaces/LetterModifyDto";
 import LetterModifyService from "../services/LetterModifyService";
-// import {before, beforeEach, afterEach, after} from './utils'
 
 global.Promise = require("q").Promise;
 import mongoose from "mongoose";
 import {LetterModifyDtoMock} from "./LetterModifyDtoMock";
+import config from "../config";
 mongoose.Promise = global.Promise;
 
 let chai = require("chai");
 chai.should();
 
-const MONGODB_URL = "mongodb+srv://sopkathon3:sopkathon3@cluster0.imwo0.mongodb.net/?retryWrites=true&w=majority"
+const MONGODB_URL = config.mongoURI
 
 const letter1 = new Letter({
     'nickname': '행복한 소설가',
@@ -61,12 +58,3 @@ test.serial('쪽지 1을 열었지만, 삭제하지 않는다', async t => {
     // after
     await Letter.remove()
 })
-
-// when
-// @ts-ignore
-// const { app } = t.context
-// const res = await request(app)
-//     .post('/api/v1/modify')
-//     .send({
-//         'id':
-//     })

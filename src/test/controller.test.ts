@@ -4,8 +4,10 @@ import Letter from "../models/Letter";
 import mongoose from "mongoose";
 import {expect} from "chai";
 require('dotenv').config();
+import config from "../config";
 
 describe("/api/v1/modify", async () => {
+    const MONGODB_URL = config.mongoURI
 
     const letter1 = new Letter({
         'nickname': '행복한 소설가',
