@@ -2,6 +2,7 @@ import "mocha";
 import test from 'ava'
 import Letter from "../models/Letter";
 import LetterModifyService from "../services/LetterModifyService";
+import LetterQueryService from "../services/LetterQueryService";
 
 global.Promise = require("q").Promise;
 import mongoose from "mongoose";
@@ -12,7 +13,10 @@ mongoose.Promise = global.Promise;
 let chai = require("chai");
 chai.should();
 
-const MONGODB_URL = config.mongoURI
+const letter0 = new Letter({
+    'nickname': '행복한 소설가',
+    'contents': '훌륭한 소설가는 많지만 훌륭한 수필가는 드물다고. 이유는 간명하다. 그러니까 이번 책은 행복한 작가 공지영의 첫 번째 출사표라고 할 수 있다.',
+})
 
 const letter1 = new Letter({
     'nickname': '행복한 소설가',
@@ -42,25 +46,25 @@ test.serial('쪽지 1을 열었지만, 삭제하지 않는다', async t => {
     await mongoose.connect(MONGODB_URL)
 
     // given
-    await letter1.save()
-    const letter1Id = letter1._id.toString()
+    await letter0.save()
+    const letter0Id = letter0._id.toString()
 
     // @ts-ignore
     // t.is(await Letter.count(), 3);
     // console.log(">LETTER >>>>>>>>>>>>> ", await Letter.findById(letter1._id.toString()).exec())
 
     // when
-    const letter1UpdateDto = new LetterModifyDtoMock(
-        letter1Id,
+    const letter0UpdateDto = new LetterModifyDtoMock(
+        letter0Id,
         true,
         false
     )
 
-    await LetterModifyService.openLetter(letter1UpdateDto);
+    await LetterModifyService.openLetter(letter0UpdateDto);
 
     // then
-    const receipt = await Letter.findById(letter1Id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", receipt)
+    const receipt = await Letter.findById(letter0Id)
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", receipt)
 
     t.is(await receipt!["isOpened"], true);
     t.is(await receipt!["isDeleted"], false);
@@ -70,6 +74,9 @@ test.serial('쪽지 1을 열었지만, 삭제하지 않는다', async t => {
 })
 
 test.serial('열었지만 삭제되지 않은 쪽지만 열어야 하고, 고독한 여행자와 나는야 딴따라만 열어야 한다.', async t => {
+    // before
+    await Letter.remove()
+
     // @ts-ignore
     await mongoose.connect(MONGODB_URL)
 
@@ -87,8 +94,15 @@ test.serial('열었지만 삭제되지 않은 쪽지만 열어야 하고, 고독
     const letter4Id = letter4._id.toString()
 
     // when
-    const notDeletedLetters = await LetterQueryService.getAllLetters(letterQueryDto);
+    const notDeletedLetters = await LetterQueryService.getLetters(
+        true, false
+    );
+
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, ", await notDeletedLetters)
 
     // then
     t.is(await notDeletedLetters.length, 2);
+
+    // after
+    await Letter.remove()
 })
