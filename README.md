@@ -8,6 +8,8 @@
 		<td><img src="https://avatars.githubusercontent.com/u/41055141?v=4"></td>
 		<td><img src="https://avatars.githubusercontent.com/u/45380072?v=4"></td>
 	</tr>
+<tr>
+</tr>
 	</table>
 </div>
 
@@ -24,14 +26,23 @@
 
 ---
 
-[//]: # (coding convention 추가하기)
+## 서비스 이름 및 소개
+**서비스 이름**: (내 마음을) **언락**</br>
+**한 줄 소개**: **즐거운 일상을 쪽지로 공유하는 서비스**
+
+## 역할 분담 및 API 명세서
+#### [역할 분담 및 API 명세서](https://workable-cashew-74c.notion.site/b0df464223474963951aa67aa1e51f68?v=b1106ed684584b9087f6fb4512a6320e)
+## Coding Convention
+#### [언락 Coding Convention](https://workable-cashew-74c.notion.site/Coding-Convention-e25bb191b92643a3b796d02e5085e4b7)
 
 ## commit message Convention
 
 #### commit message structure:
+
 <img src="https://user-images.githubusercontent.com/45380072/169348487-ce75ba0b-7e9e-4a59-9000-917b81c45cc6.png">
 
 #### commit type:
+
 <img src="https://user-images.githubusercontent.com/45380072/169348532-b7379d61-cad0-4d6a-b5d6-903ae978db8b.png">
 
 ## 브랜치 전략 (ex. github flow)
