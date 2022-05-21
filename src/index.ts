@@ -6,13 +6,14 @@ import routes                                       from './routes';
 import ResponseWrapper                              from "./util/ResponseWrapper";
 
 require('dotenv').config();
+const cors = require('cors');
 const app = express();
 
 connectDB();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
+app.use(cors());
 app.use(routes);   //라우터 
 // error handler
 
