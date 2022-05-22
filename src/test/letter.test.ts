@@ -13,7 +13,7 @@ mongoose.Promise = global.Promise;
 let chai = require("chai");
 chai.should();
 
-const MONGODB_URL = "mongodb+srv://sopkathon3:sopkathon3@cluster0.imwo0.mongodb.net/test?retryWrites=true&w=majority"
+const MONGODB_URL = ""
 
 const letter0 = new Letter({
     'nickname': '행복한 소설가',
